@@ -1,0 +1,156 @@
+/* Pengumpulan Hepigo Section Styles */
+.pengumpulan-hepigo {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.pengumpulan-hepigo h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Points Conversion */
+.points-conversion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.points-conversion::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    height: 100%;
+    width: 1px;
+    background-color: #e0e0e0;
+}
+
+/* Left Side */
+.conversion-left {
+    flex: 1;
+    padding-right: 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.conversion-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.conversion-formula {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.hepigo-text {
+    color: #ff0000;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.formula-equals {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.rupiah-text {
+    color: #ff0000;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.conversion-note {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Right Side */
+.registration-steps {
+    flex: 1;
+    padding-left: 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.registration-steps h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.step-item {
+    margin-bottom: 30px;
+}
+
+.step-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Phone Validation */
+.phone-validation {
+    background: url('../images/no-valid.png') no-repeat center;
+    background-size: contain;
+    min-height: 200px;
+    margin-top: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .points-conversion {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .points-conversion::after {
+        display: none;
+    }
+
+    .conversion-left,
+    .registration-steps {
+        padding: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .pengumpulan-hepigo {
+        padding: 40px 0;
+    }
+
+    .hepigo-text,
+    .rupiah-text,
+    .formula-equals {
+        font-size: 28px;
+    }
+
+    .phone-validation {
+        min-height: 150px;
+    }
+}

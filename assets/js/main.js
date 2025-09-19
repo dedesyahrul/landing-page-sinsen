@@ -11,6 +11,135 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    // Mobile Navigation Handling
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    let lastScrollTop = 0;
+    let isNavbarVisible = true;
+    let hideNavbarTimeout;
+    let lastTouchY = 0;
+    let touchStartY = 0;
+
+    // Handle touch gestures for navbar
+    if (navbarCollapse) {
+        navbarCollapse.addEventListener(
+            'touchstart',
+            (e) => {
+                touchStartY = e.touches[0].clientY;
+                lastTouchY = touchStartY;
+            },
+            { passive: true }
+        );
+
+        navbarCollapse.addEventListener(
+            'touchmove',
+            (e) => {
+                const touchY = e.touches[0].clientY;
+                const deltaY = touchY - lastTouchY;
+
+                // Prevent overscroll
+                if (deltaY > 0 && navbarCollapse.scrollTop <= 0) {
+                    e.preventDefault();
+                }
+                if (
+                    deltaY < 0 &&
+                    navbarCollapse.scrollTop + navbarCollapse.clientHeight >= navbarCollapse.scrollHeight
+                ) {
+                    e.preventDefault();
+                }
+
+                lastTouchY = touchY;
+            },
+            { passive: false }
+        );
+    }
+
+    // Auto-hide navbar on scroll with smooth animation
+    function handleNavbarVisibility() {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (st > lastScrollTop && st > 100) {
+            // Scrolling down - hide navbar with fade out
+            if (isNavbarVisible) {
+                navbarToggler.style.transform = 'translateY(20px) scale(0.9)';
+                navbarToggler.style.opacity = '0';
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+                setTimeout(() => {
+                    navbarToggler.style.transform = 'translateY(100px) scale(0.9)';
+                }, 300);
+                isNavbarVisible = false;
+            }
+        } else {
+            // Scrolling up - show navbar with fade in
+            if (!isNavbarVisible) {
+                navbarToggler.style.transform = 'translateY(20px) scale(0.9)';
+                navbarToggler.style.opacity = '0';
+                setTimeout(() => {
+                    navbarToggler.style.transform = 'translateY(0) scale(1)';
+                    navbarToggler.style.opacity = '1';
+                }, 50);
+                isNavbarVisible = true;
+            }
+        }
+
+        lastScrollTop = st;
+    }
+
+    // Add smooth transitions
+    if (navbarToggler) {
+        navbarToggler.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+
+    // Enhanced hide navbar function with smooth animation
+    function hideNavbarAfterScroll() {
+        clearTimeout(hideNavbarTimeout);
+        hideNavbarTimeout = setTimeout(() => {
+            if (window.innerWidth < 992 && window.pageYOffset > 100 && !navbarCollapse.classList.contains('show')) {
+                navbarToggler.style.transform = 'translateY(20px) scale(0.9)';
+                navbarToggler.style.opacity = '0';
+                setTimeout(() => {
+                    navbarToggler.style.transform = 'translateY(100px) scale(0.9)';
+                }, 300);
+                isNavbarVisible = false;
+            }
+        }, 3000);
+    }
+
+    // Add click ripple effect
+    navbarToggler.addEventListener('click', function (e) {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = `${size}px`;
+
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        setTimeout(() => ripple.remove(), 600);
+    });
+
+    // Close navbar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 992 && !e.target.closest('.navbar') && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+        }
+    });
+
+    // Add scroll event listeners
+    window.addEventListener('scroll', () => {
+        if (window.innerWidth < 992) {
+            handleNavbarVisibility();
+            hideNavbarAfterScroll();
+        }
+    });
+
     // DOM Elements
     const header = document.querySelector('.header-nav');
     const navbar = document.querySelector('.navbar');
@@ -18,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const topInfoBar = document.querySelector('.top-info-bar');
 
     // Scroll Variables
-    let lastScrollTop = 0;
     let isScrollingDown = false;
     let scrollTimeout;
     let ticking = false;
@@ -99,7 +227,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function switchContent(targetId) {
         // Remove active class from all links and sections
         sidebarLinks.forEach((link) => link.classList.remove('active'));
-        contentSections.forEach((section) => section.classList.remove('active'));
+        contentSections.forEach((section) => {
+            section.classList.remove('active');
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+        });
 
         // Add active class to clicked link and corresponding section
         const activeLink = document.querySelector(`[href="#${targetId}"]`);
@@ -108,6 +240,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (activeLink && activeSection) {
             activeLink.classList.add('active');
             activeSection.classList.add('active');
+
+            // Trigger animation after a small delay
+            setTimeout(() => {
+                activeSection.style.opacity = '1';
+                activeSection.style.transform = 'translateY(0)';
+            }, 50);
         }
     }
 
@@ -117,8 +255,150 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             switchContent(targetId);
+
+            // Scroll into view on mobile
+            if (window.innerWidth < 992) {
+                const section = document.getElementById(targetId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         });
     });
+
+    // Initialize content sections with transition styles
+    contentSections.forEach((section) => {
+        section.style.transition = 'all 0.3s ease-in-out';
+        if (!section.classList.contains('active')) {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+        }
+    });
+
+    // Initialize App Steps Carousel
+    function initAppStepsCarousel() {
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        let currentSlide = 0;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        // Update dots
+        function updateDots() {
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            const slideWidth = slides[0].offsetWidth;
+            currentTranslate = -slideWidth * currentSlide;
+            prevTranslate = currentTranslate;
+            setSlidePosition();
+            updateDots();
+        }
+
+        // Set slide position
+        function setSlidePosition() {
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        // Touch events
+        track.addEventListener('touchstart', touchStart);
+        track.addEventListener('touchmove', touchMove);
+        track.addEventListener('touchend', touchEnd);
+
+        function touchStart(event) {
+            isDragging = true;
+            startPos = event.touches[0].clientX;
+            track.style.transition = 'none';
+        }
+
+        function touchMove(event) {
+            if (!isDragging) return;
+            const currentPosition = event.touches[0].clientX;
+            const diff = currentPosition - startPos;
+            currentTranslate = prevTranslate + diff;
+            setSlidePosition();
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            track.style.transition = 'transform 0.3s ease';
+            const slideWidth = slides[0].offsetWidth;
+            const threshold = slideWidth / 4;
+            const diff = currentTranslate - prevTranslate;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0 && currentSlide > 0) {
+                    currentSlide--;
+                } else if (diff < 0 && currentSlide < slides.length - 1) {
+                    currentSlide++;
+                }
+            }
+
+            currentTranslate = -slideWidth * currentSlide;
+            prevTranslate = currentTranslate;
+            setSlidePosition();
+            updateDots();
+        }
+
+        // Auto advance slides
+        let autoAdvanceInterval;
+
+        function startAutoAdvance() {
+            autoAdvanceInterval = setInterval(() => {
+                if (currentSlide < slides.length - 1) {
+                    goToSlide(currentSlide + 1);
+                } else {
+                    goToSlide(0);
+                }
+            }, 5000);
+        }
+
+        function stopAutoAdvance() {
+            clearInterval(autoAdvanceInterval);
+        }
+
+        // Start auto advance and handle visibility changes
+        startAutoAdvance();
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoAdvance();
+            } else {
+                startAutoAdvance();
+            }
+        });
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                goToSlide(currentSlide);
+            }, 100);
+        });
+    }
+
+    // Initialize carousel if it exists
+    if (document.querySelector('.app-steps-carousel')) {
+        initAppStepsCarousel();
+    }
 
     // Initialize AOS with responsive settings
     AOS.init({
@@ -137,9 +417,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            // Skip if href is just "#"
+            if (href === '#') {
+                e.preventDefault();
+                return;
+            }
+
+            const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',

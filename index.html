@@ -15,6 +15,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/kenali-produk.css" rel="stylesheet">
+    <link href="assets/css/keuntungan-hepigo.css" rel="stylesheet">
+    <link href="assets/css/voucher.css" rel="stylesheet">
+    <link href="assets/css/pengumpulan-hepigo.css" rel="stylesheet">
+    <link href="assets/css/cara-mendapatkan-hepigo.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- AOS Animation -->
@@ -70,23 +75,26 @@
         </div>
 
         <!-- Main Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="toggler-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav w-100 justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">HOME</a>
+                            <a class="nav-link active" href="#home">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SINSEN GO</a>
+                            <a class="nav-link" href="#sinsengo">SINSEN GO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ABOUT US</a>
+                            <a class="nav-link" href="#about">ABOUT US</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -94,8 +102,10 @@
                                 SALES
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Sales Option 1</a></li>
-                                <li><a class="dropdown-item" href="#">Sales Option 2</a></li>
+                                <li><a class="dropdown-item" href="#new-motorcycles">New Motorcycles</a></li>
+                                <li><a class="dropdown-item" href="#used-motorcycles">Used Motorcycles</a></li>
+                                <li><a class="dropdown-item" href="#special-offers">Special Offers</a></li>
+                                <li><a class="dropdown-item" href="#financing">Financing Options</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -104,8 +114,10 @@
                                 SERVICE
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Service Option 1</a></li>
-                                <li><a class="dropdown-item" href="#">Service Option 2</a></li>
+                                <li><a class="dropdown-item" href="#maintenance">Regular Maintenance</a></li>
+                                <li><a class="dropdown-item" href="#repair">Repair Services</a></li>
+                                <li><a class="dropdown-item" href="#booking">Service Booking</a></li>
+                                <li><a class="dropdown-item" href="#warranty">Warranty Services</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -114,8 +126,10 @@
                                 SPARE PART
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Spare Part Option 1</a></li>
-                                <li><a class="dropdown-item" href="#">Spare Part Option 2</a></li>
+                                <li><a class="dropdown-item" href="#genuine-parts">Genuine Parts</a></li>
+                                <li><a class="dropdown-item" href="#accessories">Accessories</a></li>
+                                <li><a class="dropdown-item" href="#merchandise">Merchandise</a></li>
+                                <li><a class="dropdown-item" href="#order-parts">Order Parts</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -124,8 +138,10 @@
                                 CONTACTS
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Contact Info</a></li>
-                                <li><a class="dropdown-item" href="#">Location</a></li>
+                                <li><a class="dropdown-item" href="#dealership">Dealership Location</a></li>
+                                <li><a class="dropdown-item" href="#contact-form">Contact Form</a></li>
+                                <li><a class="dropdown-item" href="#customer-service">Customer Service</a></li>
+                                <li><a class="dropdown-item" href="#emergency">Emergency Contact</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -222,45 +238,35 @@
                 <div class="col-lg-9">
                     <div class="hepigo-content" data-aos="fade-left">
                         <!-- Kenali Produk Section -->
-                        <div id="kenaliProduk" class="content-section active">
+                        <div id="kenaliProduk" class="content-section active kenali-produk">
                             <h2>Hepigo</h2>
                             <p class="subtitle">Adalah loyalty program yang didapatkan dengan :</p>
 
-                            <div class="info-cards">
-                                <div class="card info-card">
-                                    <div class="card-body">
-                                        <div class="card-content">
-                                            <div class="text-content">
-                                                <h3>1. Bertransaksi</h3>
-                                                <p>mulai dari pembelian motor, servis, hingga pembelian parts, apparel,
-                                                    dan aksesoris Honda baik offline di dealer atau online melalui
-                                                    aplikasi</p>
-                                            </div>
-                                            <div class="icon-wrapper">
-                                                <img src="assets/images/ic-01.png" alt="Transaction Icon"
-                                                    class="info-icon">
-                                            </div>
-                                        </div>
+                            <div class="kenali-produk-cards">
+                                <div class="kenali-produk-card">
+                                    <div class="kenali-produk-content">
+                                        <h3>1. Bertransaksi</h3>
+                                        <p>mulai dari pembelian motor, servis, hingga pembelian parts, apparel, dan
+                                            aksesoris Honda baik offline di dealer atau online melalui aplikasi</p>
+                                    </div>
+                                    <div class="kenali-produk-icon">
+                                        <img src="assets/images/ic-transaksi.png" alt="EDC Machine with Icons">
                                     </div>
                                 </div>
 
-                                <div class="card info-card">
-                                    <div class="card-body">
-                                        <div class="card-content">
-                                            <div class="text-content">
-                                                <h3>2. Poin tambahan</h3>
-                                                <p>bisa didapatkan dengan melakukan berbagai aktivitas di Aplikasi [Nama
-                                                    Aplikasi] maupun aktivitas offline. (Contoh : datang ke event)</p>
-                                            </div>
-                                            <div class="icon-wrapper">
-                                                <img src="assets/images/ic-02.png" alt="Points Icon" class="info-icon">
-                                            </div>
-                                        </div>
+                                <div class="kenali-produk-card">
+                                    <div class="kenali-produk-content">
+                                        <h3>2. Poin tambahan</h3>
+                                        <p>bisa didapatkan dengan melakukan berbagai aktivitas di Aplikasi [Nama
+                                            Aplikasi] maupun aktivitas offline. (Contoh : datang ke event)</p>
+                                    </div>
+                                    <div class="kenali-produk-icon">
+                                        <img src="assets/images/ic-poin-tm-01.png" alt="Mobile App with Coins">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="info-note">
+                            <div class="kenali-produk-note">
                                 <p>Hepigo poin dapat ditukarkan dengan voucher-voucher menarik di Aplikasi [Nama
                                     Aplikasi]</p>
                                 <p class="highlight">Semakin banyak aktivitas yang kamu lakukan,<br>semakin banyak
@@ -268,8 +274,278 @@
                             </div>
                         </div>
 
+                        <!-- Voucher Section -->
+                        <div id="voucher" class="content-section voucher-section">
+                            <h2>Voucher</h2>
+                            <div class="voucher-categories">
+                                <!-- Honda Vouchers -->
+                                <div class="voucher-category honda-vouchers">
+                                    <h3 class="text-center">Voucher Honda</h3>
+                                    <!-- Top Grid - 2 columns -->
+                                    <div class="voucher-grid">
+                                        <div class="voucher-item">
+                                            <img src="assets/images/vc-ahm-oil.png" alt="AHM Oil">
+                                            <div class="voucher-details">
+                                                <h4>AHM Oil</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/vc-honda-genuine-parts.png"
+                                                alt="Honda Genuine Parts">
+                                            <div class="voucher-details">
+                                                <h4>Honda Genuine Parts</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Bottom Grid - 3 columns -->
+                                    <div class="voucher-grid-bottom">
+                                        <div class="voucher-item">
+                                            <img src="assets/images/vc-honda-apparel.png" alt="Honda Apparel">
+                                            <div class="voucher-details">
+                                                <h4>Honda Apparel</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/vc-servis-oil.png" alt="Servis, Oil, Parts">
+                                            <div class="voucher-details">
+                                                <h4>Servis, Oil, Parts</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/vc-honda-ac.png" alt="Honda Accessories">
+                                            <div class="voucher-details">
+                                                <h4>Honda Accessories</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Belanja Vouchers -->
+                                <div class="voucher-category belanja-vouchers">
+                                    <h3 class="text-center">Voucher Belanja</h3>
+                                    <!-- Top Grid - 3 columns -->
+                                    <div class="voucher-grid">
+                                        <div class="voucher-item">
+                                            <img src="assets/images/alfamart.png" alt="Alfamart">
+                                            <div class="voucher-details">
+                                                <h4>Alfamart</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/kfc.png" alt="KFC">
+                                            <div class="voucher-details">
+                                                <h4>KFC</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/gofood.png" alt="GoFood">
+                                            <div class="voucher-details">
+                                                <h4>GoFood</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Bottom Grid - 2 columns -->
+                                    <div class="voucher-grid-bottom">
+                                        <div class="voucher-item">
+                                            <img src="assets/images/dana.png" alt="DANA">
+                                            <div class="voucher-details">
+                                                <h4>DANA</h4>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-item">
+                                            <img src="assets/images/ovo.png" alt="OVO">
+                                            <div class="voucher-details">
+                                                <h4>OVO</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="voucher-note">*GAMBAR HANYA ILUSTRASI</div> -->
+                        </div>
+
+                        <!-- Pengumpulan Hepigo Section -->
+                        <div id="pengumpulanHepigo" class="content-section pengumpulan-hepigo">
+                            <h2>Pengumpulan Hepigo</h2>
+                            <div class="points-conversion">
+                                <!-- Left Side -->
+                                <div class="conversion-left">
+                                    <div class="conversion-header">
+                                        <h3>Mulai 21 Juli 2025</h3>
+                                    </div>
+                                    <div class="conversion-formula">
+                                        <div class="hepigo-text">1 hepigo Poin</div>
+                                        <div class="formula-equals">=</div>
+                                        <div class="rupiah-text">1 Rupiah Voucher*</div>
+                                    </div>
+                                    <p class="conversion-note">*Sebelumnya 1 hepigo poin = 100 Rupiah Voucher</p>
+                                </div>
+
+                                <!-- Right Side -->
+                                <div class="registration-steps">
+                                    <h3>1. Pastikan kamu memberikan nomor HP yang valid pada saat bertransaksi di dealer
+                                        Honda</h3>
+                                    <div class="step-item">
+                                        <p>2. Gunakan nomor HP yang sama untuk mendownload serta registrasi Aplikasi
+                                            [Nama Aplikasi] dengan nomor HP yang sama</p>
+                                    </div>
+                                    <div class="phone-validation"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cara Mendapatkan Hepigo Section -->
+                        <div id="caraMendapatkan" class="content-section cara-mendapatkan-hepigo">
+                            <h2>Cara Mendapatkan Hepigo</h2>
+                            <p class="subtitle">Gunakan cara ini untuk mendapatkan poin Hepigo yang lebih banyak</p>
+
+                            <!-- Content Carousel -->
+                            <div class="content-carousel">
+                                <div class="content-track" id="contentCarousel">
+                                    <!-- Content Slide 1 -->
+                                    <div class="content-slide">
+                                        <div class="methods-container">
+                                            <!-- Left Column: Melalui Aplikasi -->
+                                            <div class="method-column app-column">
+                                                <h3 class="method-title">1. Melalui Aplikasi dapat Poin</h3>
+                                                <div class="app-cards-container">
+                                                    <div class="app-cards-grid top-row">
+                                                        <div class="app-card blue-card">
+                                                            <div class="app-icon">
+                                                                <img src="assets/images/ic-profile.png"
+                                                                    alt="Lengkapi Profil">
+                                                            </div>
+                                                            <h4>Lengkapi Profil Kamu</h4>
+                                                        </div>
+                                                        <div class="app-card red-card">
+                                                            <div class="app-icon">
+                                                                <img src="assets/images/ic-referral.png" alt="Referral">
+                                                            </div>
+                                                            <h4>Referral Kerabat untuk Menggunakan MotorkuX</h4>
+                                                        </div>
+                                                        <div class="app-card orange-card">
+                                                            <div class="app-icon">
+                                                                <img src="assets/images/ic-challenge.png"
+                                                                    alt="Daily Challenge">
+                                                            </div>
+                                                            <h4>Lakukan Daily Challenge</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="app-cards-grid bottom-row">
+                                                        <div class="app-card dark-red-card">
+                                                            <div class="app-icon">
+                                                                <img src="assets/images/ic-booking.png"
+                                                                    alt="Booking Service">
+                                                            </div>
+                                                            <h4>Booking Service untuk motor kamu</h4>
+                                                        </div>
+                                                        <div class="app-card pink-card">
+                                                            <div class="app-icon">
+                                                                <img src="assets/images/ic-belanja.png" alt="Belanja">
+                                                            </div>
+                                                            <h4>Belanja Kebutuhan motor atau apparel</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Right Column: Transaksi di Dealer -->
+                                            <div class="method-column dealer-column">
+                                                <h3 class="method-title">2. Transaksi di Dealer dapat Poin & XP</h3>
+                                                <div class="dealer-items">
+                                                    <div class="dealer-item">
+                                                        <img src="assets/images/ic-motor.png" alt="Pembelian Motor"
+                                                            class="dealer-icon">
+                                                        <h4>Pembelian<br>Motor Honda</h4>
+                                                    </div>
+                                                    <div class="dealer-item">
+                                                        <img src="assets/images/ic-servis.png" alt="Servis"
+                                                            class="dealer-icon">
+                                                        <h4>Servis<br>Motor Honda</h4>
+                                                    </div>
+                                                    <div class="dealer-item">
+                                                        <img src="assets/images/ic-parts.png" alt="Pembelian Parts"
+                                                            class="dealer-icon">
+                                                        <h4>Pembelian</h4>
+                                                        <ul>
+                                                            <li>- Oli Honda</li>
+                                                            <li>- Sparepart Honda</li>
+                                                            <li>- Apparel Honda</li>
+                                                            <li>- Aksesoris Honda</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Content Slide 2 -->
+                                    <div class="content-slide">
+                                        <div class="phone-steps-section">
+                                            <h3 class="method-title">1. Melalui Aplikasi</h3>
+                                            <div class="steps-row">
+                                                <div class="profile-card">
+                                                    <div class="profile-icon">
+                                                        <img src="assets/images/ic-profile.png" alt="Profile Icon">
+                                                    </div>
+                                                    <p>Lengkapi Profil kamu</p>
+                                                </div>
+                                                <div class="phone-steps-container">
+                                                    <div class="phone-step">
+                                                        <div class="step-number">1</div>
+                                                        <div class="phone-frame">
+                                                            <img src="assets/images/ic-pro-step-01.png" alt="Step 1"
+                                                                class="phone-image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="phone-step">
+                                                        <div class="step-number">2</div>
+                                                        <div class="phone-frame">
+                                                            <img src="assets/images/ic-pro-step-02.png" alt="Step 2"
+                                                                class="phone-image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="phone-step">
+                                                        <div class="step-number">3</div>
+                                                        <div class="phone-frame">
+                                                            <img src="assets/images/ic-pro-step-03.png" alt="Step 3"
+                                                                class="phone-image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="phone-step">
+                                                        <div class="step-number">4</div>
+                                                        <div class="phone-frame">
+                                                            <img src="assets/images/ic-pro-step-04.png" alt="Step 4"
+                                                                class="phone-image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="phone-step">
+                                                        <div class="step-number">5</div>
+                                                        <div class="phone-frame">
+                                                            <img src="assets/images/ic-pro-step-05.png" alt="Step 5"
+                                                                class="phone-image">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Content Navigation -->
+                                <div class="content-nav">
+                                    <button class="content-dot active" data-slide="0"></button>
+                                    <button class="content-dot" data-slide="1"></button>
+                                </div>
+
+                                <!-- Navigation Arrows -->
+                                <button class="content-nav-arrow prev" aria-label="Previous content">❮</button>
+                                <button class="content-nav-arrow next" aria-label="Next content">❯</button>
+                            </div>
+                        </div>
+
                         <!-- Keuntungan Hepigo Section -->
-                        <div id="keuntunganHepigo" class="content-section">
+                        <div id="keuntunganHepigo" class="content-section keuntungan-hepigo">
                             <h2>Keuntungan Hepigo</h2>
                             <div class="benefits-container">
                                 <div class="benefit-item">
@@ -300,18 +576,30 @@
 
                             <div class="level-progression">
                                 <div class="level-card starter">
+                                    <div class="level-icon">
+                                        <img src="assets/images/starter-ic.png" alt="Starter Level">
+                                    </div>
                                     <h5>Starter</h5>
                                     <p>mulai perjalananmu dari sini</p>
                                 </div>
                                 <div class="level-card rider">
+                                    <div class="level-icon">
+                                        <img src="assets/images/rider-ic.png" alt="Rider Level">
+                                    </div>
                                     <h5>Rider</h5>
                                     <p>Beli motor Honda impianmu</p>
                                 </div>
                                 <div class="level-card racer">
+                                    <div class="level-icon">
+                                        <img src="assets/images/racer-ic.png" alt="Racer Level">
+                                    </div>
                                     <h5>Racer</h5>
                                     <p>Beli motor Honda impianmu >25 juta</p>
                                 </div>
                                 <div class="level-card champion">
+                                    <div class="level-icon">
+                                        <img src="assets/images/champion-ic.png" alt="Champion Level">
+                                    </div>
                                     <h5>Champion</h5>
                                     <p>Beli >1 motor Honda impianmu</p>
                                 </div>
@@ -518,6 +806,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/custom-main.js"></script>
+    <script src="assets/js/cara-mendapatkan-hepigo.js"></script>
 </body>
 
 </html>
