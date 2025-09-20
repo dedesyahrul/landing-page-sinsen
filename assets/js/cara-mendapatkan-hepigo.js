@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const track = document.querySelector('.content-track');
     const slides = document.querySelectorAll('.content-slide');
     const dots = document.querySelectorAll('.content-dot');
-    const prevButton = document.querySelector('.content-nav-arrow.prev');
-    const nextButton = document.querySelector('.content-nav-arrow.next');
+    // Removed navigation buttons
 
     let currentIndex = 0;
     let startX;
@@ -19,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Set initial state
         updateCarousel();
 
-        // Hide prev button initially
-        prevButton.style.display = 'none';
+        // Removed navigation button initialization
 
         // Add active class to first slide
         slides[0].classList.add('active');
@@ -51,9 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dot.classList.toggle('active', index === currentIndex);
         });
 
-        // Update arrow visibility
-        prevButton.style.display = currentIndex === 0 ? 'none' : 'flex';
-        nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'flex';
+        // Removed arrow visibility update
     }
 
     // Navigation functions
@@ -127,8 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dot.addEventListener('click', () => goToSlide(index));
     });
 
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
+    // Removed navigation button event listeners
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -159,29 +154,5 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCarousel(false);
     });
 
-    // Optional: Auto-play functionality
-    let autoplayInterval;
-    const AUTOPLAY_DELAY = 5000;
-
-    function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-            if (currentIndex < slides.length - 1) {
-                nextSlide();
-            } else {
-                goToSlide(0);
-            }
-        }, AUTOPLAY_DELAY);
-    }
-
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-    }
-
-    // Start autoplay and handle pause on hover/touch
-    startAutoplay();
-
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-    carousel.addEventListener('touchstart', stopAutoplay);
-    carousel.addEventListener('touchend', startAutoplay);
+    // Removed autoplay functionality for manual navigation only
 });

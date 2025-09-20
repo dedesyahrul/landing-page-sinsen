@@ -7,17 +7,20 @@
 }
 
 .cara-mendapatkan-hepigo h2 {
-    font-size: 32px;
+    font-size: clamp(24px, 4vw, 32px);
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: clamp(8px, 2vw, 10px);
     color: #333;
+    text-align: left;
 }
 
 .cara-mendapatkan-hepigo .subtitle {
     color: #666;
-    font-size: 18px;
-    margin-bottom: 40px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    margin-bottom: clamp(20px, 4vw, 40px);
     font-weight: 500;
+    text-align: left;
+    line-height: 1.5;
 }
 
 /* Modern Carousel */
@@ -71,16 +74,17 @@
 
 .method-column {
     flex: 1;
-    padding: 0 10px;
+    padding: clamp(5px, 2vw, 10px);
 }
 
 .method-title {
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: clamp(15px, 3vw, 25px);
     color: #333;
     position: relative;
     padding-left: 15px;
+    text-align: left;
 }
 
 .method-title::before {
@@ -123,8 +127,8 @@
     flex: 1;
     min-width: calc(33.33% - 7px);
     max-width: calc(33.33% - 7px);
-    padding: 15px 10px;
-    border-radius: 10px;
+    padding: clamp(10px, 2vw, 15px);
+    border-radius: clamp(8px, 1.5vw, 10px);
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -135,6 +139,26 @@
 .bottom-row .app-card {
     min-width: calc(50% - 5px);
     max-width: calc(50% - 5px);
+}
+
+@media (max-width: 767.98px) {
+    .app-card {
+        min-width: calc(50% - 7px);
+        max-width: calc(50% - 7px);
+    }
+
+    .bottom-row .app-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .app-card {
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .app-card::before {
@@ -172,19 +196,19 @@
     background: linear-gradient(135deg, #8b0000, #660000);
 }
 .pink-card {
-    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    background: linear-gradient(135deg, #e88587, #d16769);
 }
 
 .app-icon {
-    width: 32px;
-    height: 32px;
-    margin: 0 auto 10px;
+    width: clamp(28px, 4vw, 32px);
+    height: clamp(28px, 4vw, 32px);
+    margin: 0 auto clamp(8px, 1.5vw, 10px);
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 6px;
+    border-radius: clamp(6px, 1vw, 8px);
+    padding: clamp(5px, 1vw, 6px);
     transition: transform 0.3s ease;
 }
 
@@ -201,27 +225,27 @@
 
 .app-card h4 {
     color: white;
-    font-size: 12px;
+    font-size: clamp(11px, 2vw, 12px);
     font-weight: 500;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 /* Dealer Items */
 .dealer-items {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-top: 15px;
+    gap: clamp(10px, 2vw, 15px);
+    margin-top: clamp(10px, 2vw, 15px);
 }
 
 .dealer-item {
     text-align: center;
-    padding: 15px 10px;
+    padding: clamp(10px, 2vw, 15px);
     background: white;
-    border-radius: 12px;
+    border-radius: clamp(8px, 1.5vw, 12px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     flex: 1;
 }
 
@@ -377,20 +401,46 @@
     background: linear-gradient(135deg, #f39c12, #d35400);
 }
 
-.profile-card.challenge-card .profile-icon {
+/* Service Card Styles */
+.profile-card.service-card {
+    width: 140px;
+    height: auto;
+    min-height: 140px;
+    padding: 12px;
+    background: linear-gradient(135deg, #8b0000, #660000);
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+/* Shopping Card Styles */
+.profile-card.shopping-card {
+    width: 140px;
+    height: auto;
+    min-height: 140px;
+    padding: 12px;
+    background: linear-gradient(135deg, #e88587, #d16769);
+    box-shadow: 0 4px 15px rgba(232, 133, 135, 0.3);
+}
+
+.profile-card.challenge-card .profile-icon,
+.profile-card.service-card .profile-icon,
+.profile-card.shopping-card .profile-icon {
     width: 45px;
     height: 45px;
     padding: 10px;
     margin-bottom: 8px;
 }
 
-.profile-card.challenge-card p {
+.profile-card.challenge-card p,
+.profile-card.service-card p,
+.profile-card.shopping-card p {
     font-size: 12px;
     line-height: 1.4;
 }
 
 /* Challenge Steps Styles */
-.phone-steps-container.challenge-steps {
+.phone-steps-container.challenge-steps,
+.phone-steps-container.service-steps,
+.phone-steps-container.shopping-steps {
     display: flex;
     gap: clamp(8px, 2vw, 15px);
     align-items: flex-start;
@@ -405,13 +455,17 @@
     flex-wrap: nowrap;
 }
 
-.phone-step.challenge-step {
+.phone-step.challenge-step,
+.phone-step.service-step,
+.phone-step.shopping-step {
     width: clamp(80px, 20vw, 120px);
     flex: 0 0 auto;
     transition: transform 0.3s ease;
 }
 
-.phone-frame.challenge-frame {
+.phone-frame.challenge-frame,
+.phone-frame.service-frame,
+.phone-frame.shopping-frame {
     aspect-ratio: 9/16;
     border-radius: clamp(10px, 2vw, 15px);
     width: 100%;
@@ -419,7 +473,9 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-.phone-frame.challenge-frame img {
+.phone-frame.challenge-frame img,
+.phone-frame.service-frame img,
+.phone-frame.shopping-frame img {
     border-radius: clamp(10px, 2vw, 15px);
     object-fit: cover;
     width: 100%;
@@ -459,24 +515,32 @@
 }
 
 @media (max-width: 767.98px) {
-    /* Challenge Card Responsive */
-    .profile-card.challenge-card {
+    /* Challenge, Service & Shopping Card Responsive */
+    .profile-card.challenge-card,
+    .profile-card.service-card,
+    .profile-card.shopping-card {
         width: 120px;
         min-height: 120px;
         padding: 10px;
     }
 
-    .profile-card.challenge-card .profile-icon {
+    .profile-card.challenge-card .profile-icon,
+    .profile-card.service-card .profile-icon,
+    .profile-card.shopping-card .profile-icon {
         width: 35px;
         height: 35px;
         padding: 8px;
     }
 
-    .profile-card.challenge-card p {
+    .profile-card.challenge-card p,
+    .profile-card.service-card p,
+    .profile-card.shopping-card p {
         font-size: 11px;
     }
 
-    .phone-steps-container.challenge-steps {
+    .phone-steps-container.challenge-steps,
+    .phone-steps-container.service-steps,
+    .phone-steps-container.shopping-steps {
         width: calc(100% - 115px);
         gap: 12px;
         overflow-x: auto;
@@ -487,13 +551,17 @@
         flex-wrap: nowrap;
     }
 
-    .phone-step.challenge-step {
+    .phone-step.challenge-step,
+    .phone-step.service-step,
+    .phone-step.shopping-step {
         width: clamp(110px, 20vw, 140px);
         flex: 0 0 auto;
         padding: 5px;
     }
 
-    .phone-frame.challenge-frame {
+    .phone-frame.challenge-frame,
+    .phone-frame.service-frame,
+    .phone-frame.shopping-frame {
         aspect-ratio: 9/16;
     }
 
@@ -544,9 +612,12 @@
 }
 
 @media (max-width: 575.98px) {
-    /* Profile and Referral Steps Mobile */
+    /* Profile, Referral, Challenge, Service and Shopping Steps Mobile */
     .phone-steps-container.profile-steps,
-    .phone-steps-container.referral-steps {
+    .phone-steps-container.referral-steps,
+    .phone-steps-container.challenge-steps,
+    .phone-steps-container.service-steps,
+    .phone-steps-container.shopping-steps {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -568,42 +639,43 @@
         max-width: none;
     }
 
-    /* Challenge Card Mobile */
-    .profile-card.challenge-card {
+    /* Card Mobile Styles */
+    .profile-card.challenge-card,
+    .profile-card.service-card,
+    .profile-card.shopping-card {
         width: 100px;
         min-height: 100px;
         padding: 8px;
     }
 
-    .profile-card.challenge-card .profile-icon {
+    .profile-card.challenge-card .profile-icon,
+    .profile-card.service-card .profile-icon,
+    .profile-card.shopping-card .profile-icon {
         width: 30px;
         height: 30px;
         padding: 6px;
         margin-bottom: 6px;
     }
 
-    .profile-card.challenge-card p {
+    .profile-card.challenge-card p,
+    .profile-card.service-card p,
+    .profile-card.shopping-card p {
         font-size: 10px;
         line-height: 1.3;
     }
 
-    .phone-steps-container.challenge-steps {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 15px;
-        padding: 10px;
-        overflow: visible;
-    }
-
-    .phone-step.challenge-step {
+    .phone-step.challenge-step,
+    .phone-step.service-step,
+    .phone-step.shopping-step {
         width: 100%;
         max-width: 200px;
         margin: 0 auto;
         padding: 5px;
     }
 
-    .phone-frame.challenge-frame {
+    .phone-frame.challenge-frame,
+    .phone-frame.service-frame,
+    .phone-frame.shopping-frame {
         aspect-ratio: 9/16;
         width: 100%;
         max-width: none;
@@ -704,36 +776,39 @@
 .content-nav {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
+    gap: clamp(8px, 1.5vw, 12px);
+    margin-top: clamp(20px, 4vw, 30px);
+    padding: clamp(5px, 1vw, 10px);
 }
 
 .content-dot {
-    width: 12px;
-    height: 12px;
+    width: clamp(8px, 1.5vw, 12px);
+    height: clamp(8px, 1.5vw, 12px);
     border-radius: 50%;
     background-color: #ddd;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    padding: 0;
 }
 
 .content-dot::after {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: clamp(-3px, -0.5vw, -4px);
+    left: clamp(-3px, -0.5vw, -4px);
+    right: clamp(-3px, -0.5vw, -4px);
+    bottom: clamp(-3px, -0.5vw, -4px);
     border-radius: 50%;
     border: 2px solid #dc3545;
     transform: scale(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-dot.active {
     background-color: #dc3545;
+    transform: scale(1.1);
 }
 
 .content-dot.active::after {
@@ -742,41 +817,11 @@
 
 .content-dot:hover {
     background-color: #dc3545;
-    transform: scale(1.1);
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
 }
 
-.content-nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    background: rgba(220, 53, 69, 0.9);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    z-index: 2;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.content-nav-arrow.prev {
-    left: 10px;
-}
-
-.content-nav-arrow.next {
-    right: 10px;
-}
-
-.content-nav-arrow:hover {
-    background: #dc3545;
-    transform: translateY(-50%) scale(1.1);
-}
+/* Removed navigation arrows styles */
 
 /* Responsive Styles */
 @media (max-width: 1199.98px) {
@@ -922,15 +967,32 @@
         padding: clamp(25px, 4vw, 40px) 0;
     }
 
+    .content-nav {
+        gap: clamp(6px, 1vw, 8px);
+        margin-top: clamp(15px, 3vw, 20px);
+        padding: clamp(3px, 0.8vw, 5px);
+    }
+
+    .content-dot {
+        width: clamp(6px, 1.2vw, 8px);
+        height: clamp(6px, 1.2vw, 8px);
+    }
+
+    .content-dot::after {
+        top: clamp(-2px, -0.4vw, -3px);
+        left: clamp(-2px, -0.4vw, -3px);
+        right: clamp(-2px, -0.4vw, -3px);
+        bottom: clamp(-2px, -0.4vw, -3px);
+        border-width: 1.5px;
+    }
+
     .cara-mendapatkan-hepigo h2 {
         font-size: clamp(20px, 4vw, 24px);
-        text-align: center;
         margin-bottom: clamp(8px, 2vw, 10px);
     }
 
     .cara-mendapatkan-hepigo .subtitle {
         font-size: clamp(13px, 2.5vw, 14px);
-        text-align: center;
         margin-bottom: clamp(20px, 4vw, 25px);
     }
 
@@ -1012,6 +1074,30 @@
 @media (max-width: 575.98px) {
     .cara-mendapatkan-hepigo {
         padding: clamp(20px, 3vw, 30px) 0;
+    }
+
+    .content-nav {
+        gap: clamp(4px, 0.8vw, 6px);
+        margin-top: clamp(12px, 2.5vw, 15px);
+        padding: clamp(2px, 0.5vw, 3px);
+    }
+
+    .content-dot {
+        width: clamp(4px, 1vw, 6px);
+        height: clamp(4px, 1vw, 6px);
+    }
+
+    .content-dot::after {
+        top: clamp(-1.5px, -0.3vw, -2px);
+        left: clamp(-1.5px, -0.3vw, -2px);
+        right: clamp(-1.5px, -0.3vw, -2px);
+        bottom: clamp(-1.5px, -0.3vw, -2px);
+        border-width: 1px;
+    }
+
+    .content-dot:hover,
+    .content-dot.active {
+        transform: scale(1.15);
     }
 
     .cara-mendapatkan-hepigo h2 {
