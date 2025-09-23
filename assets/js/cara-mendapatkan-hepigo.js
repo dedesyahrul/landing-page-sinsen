@@ -7,11 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentIndex = 0;
     let startX;
+    let startY;
     let isDragging = false;
     let startPos;
     let animationId;
     let currentTranslate = 0;
     let prevTranslate = 0;
+    let startTime;
+    let isScrolling = false;
+    let lastTouchTime = 0;
+    const TOUCH_DELAY = 300; // Delay antara touch events dalam ms
 
     // Initialize
     function init() {
@@ -74,9 +79,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Touch events
     function touchStart(event) {
+        const now = new Date().getTime();
+        if (now - lastTouchTime < TOUCH_DELAY) {
+            return; // Ignore touches that are too close together
+        }
+        lastTouchTime = now;
+
         isDragging = true;
+        isScrolling = false;
         startX = event.type === 'mousedown' ? event.pageX : event.touches[0].pageX;
+        startY = event.type === 'mousedown' ? event.pageY : event.touches[0].pageY;
         startPos = currentTranslate;
+        startTime = now;
 
         // Stop any ongoing animation
         cancelAnimationFrame(animationId);
@@ -89,8 +103,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isDragging) return;
 
         const currentX = event.type === 'mousemove' ? event.pageX : event.touches[0].pageX;
-        const diff = currentX - startX;
-        currentTranslate = startPos + diff;
+        const currentY = event.type === 'mousemove' ? event.pageY : event.touches[0].pageY;
+
+        // Hitung perpindahan X dan Y
+        const diffX = currentX - startX;
+        const diffY = currentY - startY;
+
+        // Deteksi arah scroll pada awal gerakan
+        if (!isScrolling && Math.abs(diffY) > Math.abs(diffX)) {
+            isScrolling = true;
+            isDragging = false;
+            return;
+        }
+
+        // Jika sedang scroll vertikal, hentikan slide
+        if (isScrolling) return;
+
+        // Prevent default hanya jika gerakan horizontal
+        event.preventDefault();
+
+        // Tambahkan resistance saat di ujung carousel
+        let resistance = 1;
+        if ((currentIndex === 0 && diffX > 0) || (currentIndex === slides.length - 1 && diffX < 0)) {
+            resistance = 0.25; // Lebih sulit untuk di-drag di ujung
+        }
+
+        currentTranslate = startPos + diffX * resistance;
 
         // Limit the drag to the next/previous slide only
         const maxTranslate = 0;
@@ -101,19 +139,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function touchEnd() {
-        isDragging = false;
-        const movedBy = currentTranslate - startPos;
+        if (!isDragging) return;
 
-        // If moved enough negative, next slide
-        if (movedBy < -100 && currentIndex < slides.length - 1) {
+        isDragging = false;
+        isScrolling = false;
+
+        const movedBy = currentTranslate - startPos;
+        const threshold = carousel.offsetWidth * 0.2; // Turunkan threshold ke 20%
+
+        // Tambahkan minimum velocity untuk swipe
+        const endTime = new Date().getTime();
+        const timeElapsed = endTime - startTime;
+        const velocity = Math.abs(movedBy) / timeElapsed;
+
+        // Jika gerakan terlalu kecil, kembali ke posisi awal
+        if (Math.abs(movedBy) < 10) {
+            updateCarousel();
+            return;
+        }
+
+        // Jika velocity tinggi (swipe cepat) atau threshold tercapai
+        if ((velocity > 0.3 || Math.abs(movedBy) > threshold) && movedBy < 0 && currentIndex < slides.length - 1) {
             nextSlide();
-        }
-        // If moved enough positive, prev slide
-        else if (movedBy > 100 && currentIndex > 0) {
+        } else if ((velocity > 0.3 || Math.abs(movedBy) > threshold) && movedBy > 0 && currentIndex > 0) {
             prevSlide();
-        }
-        // If not moved enough, revert to current slide
-        else {
+        } else {
+            // Animasi kembali ke posisi awal jika tidak memenuhi threshold
             updateCarousel();
         }
     }

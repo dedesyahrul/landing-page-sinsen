@@ -1,0 +1,169 @@
+/* Cara Cek Hepigo Section Styles */
+.cara-cek-hepigo {
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+
+.cara-cek-hepigo .cara-cek-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.cara-cek-hepigo .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cara-cek-hepigo .step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cara-cek-hepigo .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--hepigo-red);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.cara-cek-hepigo .step-content {
+    flex: 1;
+}
+
+.cara-cek-hepigo .step-content h3 {
+    color: var(--hepigo-dark);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.cara-cek-hepigo .phone-mockup {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.cara-cek-hepigo .mockup-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cara-cek-hepigo .highlight-area {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 30%;
+    height: 15%;
+    border: 2px solid var(--hepigo-red);
+    border-radius: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .cara-cek-hepigo .step-item {
+        padding: 25px;
+        gap: 20px;
+    }
+
+    .cara-cek-hepigo .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+
+    .cara-cek-hepigo .step-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .cara-cek-hepigo .phone-mockup {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .cara-cek-hepigo .cara-cek-steps {
+        gap: 20px;
+    }
+
+    .cara-cek-hepigo .step-item {
+        padding: 20px;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cara-cek-hepigo .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .cara-cek-hepigo .step-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .cara-cek-hepigo .phone-mockup {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .cara-cek-hepigo .step-item {
+        padding: 15px;
+    }
+
+    .cara-cek-hepigo .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    .cara-cek-hepigo .step-content h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .cara-cek-hepigo .phone-mockup {
+        max-width: 180px;
+    }
+}

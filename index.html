@@ -20,6 +20,8 @@
     <link href="assets/css/voucher.css" rel="stylesheet">
     <link href="assets/css/pengumpulan-hepigo.css" rel="stylesheet">
     <link href="assets/css/cara-mendapatkan-hepigo.css" rel="stylesheet">
+    <link href="assets/css/penukaran-hepigo.css" rel="stylesheet">
+    <link href="assets/css/cara-cek-hepigo.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- AOS Animation -->
@@ -394,6 +396,173 @@
                             </div>
                         </div>
 
+                        <!-- Penukaran Hepigo Section -->
+                        <div id="penukaranHepigo" class="content-section penukaran-hepigo">
+                            <h2>Penukaran Hepigo</h2>
+                            <p>Yuk klik disini untuk detail selengkapnya :</p>
+
+                            <div class="penukaran-options">
+                                <button class="penukaran-option" data-target="hepigoPoin"
+                                    onclick="toggleCarousel('hepigoPoin')">
+                                    <div class="option-content">
+                                        <span class="option-text">Hepigo Poin & XP</span>
+                                        <div class="option-icon">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                        <div class="option-pattern"></div>
+                                    </div>
+                                </button>
+                                <button class="penukaran-option" data-target="kalkulasiLevel"
+                                    onclick="toggleCarousel('kalkulasiLevel')">
+                                    <div class="option-content">
+                                        <span class="option-text">Kalkulasi Level</span>
+                                        <div class="option-icon">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                        <div class="option-pattern"></div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <!-- Inline Carousel Content -->
+                            <div id="hepigoPoinContent" class="carousel-content" style="display: none;">
+                                <div class="penukaran-carousel">
+                                    <div class="penukaran-track" id="poinCarousel">
+                                        <!-- Content Slide 1 -->
+                                        <div class="penukaran-slide">
+                                            <div class="poin-slide">
+                                                <div class="poin-columns">
+                                                    <!-- Left Column: Hepigo Poin -->
+                                                    <div class="poin-column">
+                                                        <div class="poin-header">
+                                                            <h4>Hepigo Poin</h4>
+                                                        </div>
+                                                        <div class="poin-content">
+                                                            <div class="poin-info-text">
+                                                                <p class="numbered-item" data-number="1.">Dapat
+                                                                    ditukarkan dengan
+                                                                    <span class="highlight">voucher menarik</span>
+                                                                </p>
+                                                                <div class="voucher-images">
+                                                                    <img src="assets/images/voucher/vc-ahm-oil.png"
+                                                                        alt="Voucher 15.000">
+                                                                    <img src="assets/images/voucher/vc-honda-genuine-parts.png"
+                                                                        alt="Voucher 15.000">
+                                                                    <img src="assets/images/voucher/vc-honda-apparel.png"
+                                                                        alt="Voucher 15.000">
+                                                                </div>
+                                                            </div>
+                                                            <div class="poin-info-text">
+                                                                <div class="poin-text-content">
+                                                                    <p class="numbered-item" data-number="2.">Dapat
+                                                                        ditukarkan dengan
+                                                                        voucher untuk memotong transaksi pembelian
+                                                                        motor,
+                                                                        servis, hingga pembelian parts, apparel, dan
+                                                                        aksesoris sepeda motor Honda di Dealer resmi</p>
+                                                                </div>
+                                                                <div class="invoice-image">
+                                                                    <img src="assets/images/mockup/hepigo/ic-inv-perbaikan.png"
+                                                                        alt="Invoice Example">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right Column: Hepigo XP -->
+                                                    <div class="poin-column">
+                                                        <div class="poin-header">
+                                                            <h4>Hepigo XP</h4>
+                                                            <p class="benefit-title">Benefit Level</p>
+                                                        </div>
+                                                        <div class="level-grid">
+                                                            <div class="level-row">
+                                                                <div class="level-item">
+                                                                    <img src="assets/images/level/starter-01.png"
+                                                                        alt="Starter Level">
+                                                                    <h5>Starter</h5>
+                                                                </div>
+                                                                <div class="level-item">
+                                                                    <img src="assets/images/level/rider-01.png"
+                                                                        alt="Rider Level">
+                                                                    <h5>Rider</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="level-row">
+                                                                <div class="level-item">
+                                                                    <img src="assets/images/level/racer-01.png"
+                                                                        alt="Racer Level">
+                                                                    <h5>Racer</h5>
+                                                                </div>
+                                                                <div class="level-item">
+                                                                    <img src="assets/images/level/champion-01.png"
+                                                                        alt="Champion Level">
+                                                                    <h5>Champion</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Content Slide 2 -->
+                                        <div class="penukaran-slide">
+                                            <div class="poin-slide">
+                                                <div class="poin-header">
+                                                    <img src="assets/images/level-icon.png" alt="XP Points">
+                                                    <h4>XP Points</h4>
+                                                </div>
+                                                <div class="poin-content">
+                                                    <p>Kumpulkan XP untuk naik level:</p>
+                                                    <ul>
+                                                        <li>Starter: 0 - 1000 XP</li>
+                                                        <li>Rider: 1001 - 5000 XP</li>
+                                                        <li>Racer: 5001 - 10000 XP</li>
+                                                        <li>Champion: >10000 XP</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Content Slide 3 -->
+                                        <div class="penukaran-slide">
+                                            <div class="poin-slide">
+                                                <div class="poin-header">
+                                                    <img src="assets/images/reward-icon.png" alt="Benefits">
+                                                    <h4>Benefits</h4>
+                                                </div>
+                                                <div class="poin-content">
+                                                    <p>Keuntungan yang kamu dapatkan:</p>
+                                                    <ul>
+                                                        <li>Voucher belanja menarik</li>
+                                                        <li>Diskon servis</li>
+                                                        <li>Cashback sparepart</li>
+                                                        <li>Reward eksklusif</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Content Navigation -->
+                                    <div class="penukaran-nav">
+                                        <button class="penukaran-dot active" data-slide="0"></button>
+                                        <button class="penukaran-dot" data-slide="1"></button>
+                                        <button class="penukaran-dot" data-slide="2"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="kalkulasiLevelContent" class="carousel-content" style="display: none;">
+                                <div class="level-calculator">
+                                    <h4>Kalkulator Level</h4>
+                                    <p>Alat kalkulasi level akan ditampilkan di sini.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
                         <!-- Cara Mendapatkan Hepigo Section -->
                         <div id="caraMendapatkan" class="content-section cara-mendapatkan-hepigo">
                             <h2>Cara Mendapatkan Hepigo</h2>
@@ -739,6 +908,35 @@
                             </div>
                         </div>
 
+                        <!-- Cara Cek Hepigo Section -->
+                        <div id="caraCek" class="content-section cara-cek-hepigo">
+                            <h2>Cara Cek Hepigo</h2>
+                            <div class="cara-cek-steps">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h3>Buka Aplikasi [Nama Aplikasi]</h3>
+                                        <div class="phone-mockup">
+                                            <img src="assets/images/mockup/hepigo/ic-hep-01.png" alt="App Mockup"
+                                                class="mockup-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h3>Lihat di pojok kanan atas menu beranda, kamu akan menemukan jumlah poin dan
+                                            level yang kamu miliki</h3>
+                                        <div class="phone-mockup">
+                                            <img src="assets/images/mockup/hepigo/ic-hep-02.png" alt="Points Mockup"
+                                                class="mockup-image">
+                                            <div class="highlight-area"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Keuntungan Hepigo Section -->
                         <div id="keuntunganHepigo" class="content-section keuntungan-hepigo">
                             <h2>Keuntungan Hepigo</h2>
@@ -1003,6 +1201,16 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/custom-main.js"></script>
     <script src="assets/js/cara-mendapatkan-hepigo.js"></script>
+    <script src="assets/js/penukaran-hepigo.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
 </body>
 
 </html>
