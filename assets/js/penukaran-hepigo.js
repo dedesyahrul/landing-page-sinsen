@@ -88,6 +88,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             lastTouchTime = now;
 
+            // Check if user is trying to select text
+            const target = event.target;
+            if (
+                target.tagName === 'P' ||
+                target.tagName === 'H1' ||
+                target.tagName === 'H2' ||
+                target.tagName === 'H3' ||
+                target.tagName === 'H4' ||
+                target.tagName === 'H5' ||
+                target.tagName === 'H6' ||
+                target.tagName === 'SPAN' ||
+                target.tagName === 'LI' ||
+                target.closest('.penukaran-benefit-text') ||
+                target.closest('.benefit-text') ||
+                target.closest('.poin-content') ||
+                target.closest('.level-notes')
+            ) {
+                return; // Allow text selection
+            }
+
             isDragging = true;
             isScrolling = false;
             startX = event.type === 'mousedown' ? event.pageX : event.touches[0].pageX;
@@ -108,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const diffX = currentX - startX;
             const diffY = currentY - startY;
 
-            if (!isScrolling && Math.abs(diffY) > Math.abs(diffX)) {
+            // Increase threshold for vertical scrolling detection
+            if (!isScrolling && Math.abs(diffY) > Math.abs(diffX) * 1.5) {
                 isScrolling = true;
                 isDragging = false;
                 return;
@@ -116,11 +137,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (isScrolling) return;
 
+            // Increase threshold for horizontal swipe detection
+            const minSwipeDistance = 30; // Increased from default
+            if (Math.abs(diffX) < minSwipeDistance) {
+                return;
+            }
+
             event.preventDefault();
 
-            let resistance = 1;
+            let resistance = 0.5; // Reduced sensitivity
             if ((currentIndex === 0 && diffX > 0) || (currentIndex === slides.length - 1 && diffX < 0)) {
-                resistance = 0.25;
+                resistance = 0.1; // Even less resistance at edges
             }
 
             currentTranslate = startPos + diffX * resistance;
@@ -139,20 +166,22 @@ document.addEventListener('DOMContentLoaded', function () {
             isScrolling = false;
 
             const movedBy = currentTranslate - startPos;
-            const threshold = carousel.offsetWidth * 0.2;
+            const threshold = carousel.offsetWidth * 0.3; // Increased threshold
 
             const endTime = new Date().getTime();
             const timeElapsed = endTime - startTime;
             const velocity = Math.abs(movedBy) / timeElapsed;
 
-            if (Math.abs(movedBy) < 10) {
+            // Increased minimum movement threshold
+            if (Math.abs(movedBy) < 50) {
                 updateCarousel();
                 return;
             }
 
-            if ((velocity > 0.3 || Math.abs(movedBy) > threshold) && movedBy < 0 && currentIndex < slides.length - 1) {
+            // Increased velocity threshold and movement threshold
+            if ((velocity > 0.5 || Math.abs(movedBy) > threshold) && movedBy < 0 && currentIndex < slides.length - 1) {
                 nextSlide();
-            } else if ((velocity > 0.3 || Math.abs(movedBy) > threshold) && movedBy > 0 && currentIndex > 0) {
+            } else if ((velocity > 0.5 || Math.abs(movedBy) > threshold) && movedBy > 0 && currentIndex > 0) {
                 prevSlide();
             } else {
                 updateCarousel();

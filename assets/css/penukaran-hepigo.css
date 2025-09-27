@@ -189,6 +189,10 @@
     display: flex;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 .penukaran-slide {
@@ -864,6 +868,10 @@
     padding: 0;
     margin: 0;
     width: 100%;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 .poin-content p {
@@ -1880,6 +1888,10 @@
 
 .champion-benefit-box .benefit-text {
     flex: 1;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 .champion-benefit-box .benefit-text p {
@@ -2149,6 +2161,10 @@
 
 .penukaran-benefit-content {
     flex: 1;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 .penukaran-benefit-content h6 {
