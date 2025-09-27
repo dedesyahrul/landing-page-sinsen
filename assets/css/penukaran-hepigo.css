@@ -1685,7 +1685,7 @@
     display: flex;
     gap: 30px;
     align-items: flex-start;
-    padding: 20px;
+    padding: 0;
 }
 
 .mobile-mockup-section {
@@ -1900,7 +1900,7 @@
     .benefit-level-content {
         flex-direction: column;
         gap: 20px;
-        padding: 15px;
+        padding: 0;
     }
 
     .mobile-mockup-section {
@@ -1955,7 +1955,7 @@
 
 @media (max-width: 767.98px) {
     .benefit-level-content {
-        padding: 12px;
+        padding: 0;
         gap: 18px;
     }
 
@@ -1996,7 +1996,7 @@
 
 @media (max-width: 575.98px) {
     .benefit-level-content {
-        padding: 10px;
+        padding: 0;
         gap: 15px;
     }
 
