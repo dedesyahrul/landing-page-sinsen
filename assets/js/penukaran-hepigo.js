@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const track = carousel;
         const slides = carousel.querySelectorAll('.penukaran-slide');
-        const dots = carousel.parentElement.querySelectorAll('.penukaran-dot');
+        const dotsContainer = document.querySelector('.penukaran-nav');
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.penukaran-dot') : [];
 
         let currentIndex = 0;
         let startX;
@@ -51,9 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
+            // Update dots if they exist
+            if (dots.length > 0) {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
         }
 
         // Navigation functions
@@ -156,9 +160,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Event Listeners
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
-        });
+        if (dots.length > 0) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    dots.forEach((d, i) => {
+                        d.classList.toggle('active', i === index);
+                    });
+                });
+            });
+        }
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {

@@ -1558,22 +1558,22 @@ section .section-subtitle {
         margin-bottom: 15px;
     }
 
-    .benefit-item {
+    .keuntungan-benefit-item {
         padding: 15px;
     }
 
-    .benefit-icon {
+    .keuntungan-benefit-icon {
         width: 60px;
         height: 60px;
         margin: 0 auto 15px;
     }
 
-    .benefit-item h4 {
+    .keuntungan-benefit-item h4 {
         font-size: 1.1rem;
         margin-bottom: 8px;
     }
 
-    .benefit-item p {
+    .keuntungan-benefit-item p {
         font-size: 0.9rem;
     }
 
@@ -2264,7 +2264,7 @@ section .section-subtitle {
     margin-bottom: 40px;
 }
 
-.benefit-item {
+.keuntungan-benefit-item {
     text-align: center;
     padding: 20px;
     background: #ffffff;
@@ -2273,30 +2273,30 @@ section .section-subtitle {
     transition: all 0.3s ease;
 }
 
-.benefit-item:hover {
+.keuntungan-benefit-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.benefit-icon {
+.keuntungan-benefit-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
 }
 
-.benefit-icon img {
+.keuntungan-benefit-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.benefit-item h4 {
+.keuntungan-benefit-item h4 {
     color: var(--hepigo-red);
     font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
-.benefit-item p {
+.keuntungan-benefit-item p {
     color: var(--hepigo-dark);
     font-size: 1rem;
     line-height: 1.5;
@@ -2523,13 +2523,13 @@ body[data-aos-duration='400'] [data-aos] {
     /* Reduce box shadows on mobile for performance */
     .card,
     .info-card,
-    .benefit-item {
+    .keuntungan-benefit-item {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .card:hover,
     .info-card:hover,
-    .benefit-item:hover {
+    .keuntungan-benefit-item:hover {
         transform: none;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
