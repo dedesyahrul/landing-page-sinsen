@@ -169,8 +169,7 @@
     padding: 30px;
 }
 
-.poin-info,
-.level-calculator {
+.poin-info {
     text-align: center;
 }
 
@@ -493,7 +492,7 @@
 /* Responsive Styles */
 @media (max-width: 991.98px) {
     .carousel-content {
-        margin: 10px 0;
+        margin: 0;
     }
 
     .penukaran-carousel {
@@ -620,7 +619,7 @@
 
 @media (max-width: 575.98px) {
     .carousel-content {
-        margin: 5px 0;
+        margin: 0;
     }
 
     .penukaran-carousel {
@@ -964,7 +963,7 @@
 .carousel-content {
     position: relative;
     overflow: hidden;
-    margin-top: clamp(15px, 3vw, 20px);
+    margin-top: 0;
     width: 100%;
     max-width: 100%;
     padding: 0;
@@ -1033,10 +1032,10 @@
 /* Level Calculator Content */
 .level-calculator {
     text-align: left;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
     margin: 0;
     width: 100%;
     max-width: 100%;
@@ -1048,7 +1047,7 @@
     font-size: 1.4rem;
     margin-bottom: 15px;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     position: relative;
 }
 
@@ -1056,8 +1055,7 @@
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 60px;
     height: 3px;
     background: var(--hepigo-red);
@@ -1069,8 +1067,8 @@
     font-size: 1rem;
     line-height: 1.6;
     max-width: 800px;
-    margin: 0 auto 25px;
-    text-align: center;
+    margin: 0 0 25px 0;
+    text-align: left;
 }
 
 .level-progress-container {
@@ -1225,7 +1223,9 @@
 /* Responsive styles */
 @media (max-width: 991.98px) {
     .level-calculator {
-        padding: 15px;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
     }
 
     .level-progress-container {
@@ -1262,7 +1262,9 @@
 
 @media (max-width: 767.98px) {
     .level-calculator {
-        padding: 12px;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
     }
 
     .level-progress-container {
@@ -1333,7 +1335,9 @@
 
 @media (max-width: 575.98px) {
     .level-calculator {
-        padding: 10px;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
     }
 
     .level-progress-container {
@@ -1421,6 +1425,8 @@
 @media (max-width: 575.98px) {
     .level-calculator {
         padding: 0;
+        background: transparent;
+        box-shadow: none;
     }
 
     .level-calculator p {
