@@ -31,6 +31,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .penukaran-option {
@@ -47,6 +48,7 @@
     cursor: pointer;
     width: 100%;
     max-width: 300px;
+    box-sizing: border-box;
 }
 
 .penukaran-option:focus {
@@ -183,6 +185,7 @@
     background: #ffffff;
     border-radius: clamp(8px, 1.5vw, 12px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
 .penukaran-track {
@@ -1030,17 +1033,35 @@
 /* Level Calculator Content */
 .level-calculator {
     text-align: left;
-    padding: 0;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .level-calculator h4 {
     color: var(--hepigo-dark);
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+.level-calculator h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--hepigo-red);
+    border-radius: 2px;
 }
 
 .level-calculator p {
@@ -1048,98 +1069,123 @@
     font-size: 1rem;
     line-height: 1.6;
     max-width: 800px;
-    margin: 0 0 20px;
-    text-align: left;
+    margin: 0 auto 25px;
+    text-align: center;
 }
 
 .level-progress-container {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    padding: 0;
-    align-items: center;
-    justify-content: flex-start;
+    gap: 15px;
+    padding: 20px 0;
+    align-items: flex-start;
+    justify-content: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Left Column: Level Action Labels */
 .level-action-labels {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    min-width: 100px;
+    gap: 12px;
+    min-width: 120px;
+    flex-shrink: 0;
 }
 
 .action-label-card {
     background: var(--hepigo-red);
     color: white;
-    padding: 10px;
+    padding: 12px 15px;
     border-radius: 8px;
     text-align: center;
     font-weight: 600;
-    font-size: 0.85rem;
-    min-height: 45px;
+    font-size: 0.9rem;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.action-label-card:hover {
+    background: #e83e4c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
 
 /* Middle Column: Character Levels and Progress */
 .level-characters-section {
     display: flex;
     flex-direction: row;
-    gap: 0;
-    align-items: center;
+    gap: 20px;
+    align-items: flex-start;
     justify-content: center;
     flex: 1;
+    min-width: 0;
 }
 
 .character-images {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     flex: 0 0 auto;
+    flex-wrap: wrap;
 }
 
 .character-item {
     flex: 0 0 auto;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.character-item:hover {
+    transform: translateY(-5px);
 }
 
 .character-img {
-    width: 120px;
+    width: 100px;
     height: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.character-img:hover {
+    transform: scale(1.05);
 }
 
 .level-progress-graph {
     flex: 0 0 auto;
-    margin-left: 15px;
-    margin-top: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding-left: 0;
 }
 
 .progress-graph {
     width: auto;
-    height: 100px;
+    height: 120px;
     object-fit: contain;
+    max-width: 100%;
 }
 
 /* Notes Section */
 .level-notes {
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 25px;
+    padding: 20px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 12px;
     border-left: 4px solid var(--hepigo-red);
     text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .level-notes h5 {
@@ -1178,9 +1224,13 @@
 
 /* Responsive styles */
 @media (max-width: 991.98px) {
+    .level-calculator {
+        padding: 15px;
+    }
+
     .level-progress-container {
-        gap: 15px;
-        padding: 0;
+        gap: 12px;
+        padding: 15px 0;
     }
 
     .level-action-labels {
@@ -1189,61 +1239,66 @@
 
     .action-label-card {
         font-size: 0.85rem;
-        min-height: 40px;
-        padding: 10px;
+        min-height: 45px;
+        padding: 10px 12px;
     }
 
     .level-characters-section {
-        gap: 0;
+        gap: 15px;
     }
 
     .character-images {
-        gap: 5px;
+        gap: 6px;
     }
 
     .character-img {
-        width: 110px;
+        width: 90px;
     }
 
     .progress-graph {
-        height: 90px;
+        height: 100px;
     }
 }
 
 @media (max-width: 767.98px) {
+    .level-calculator {
+        padding: 12px;
+    }
+
     .level-progress-container {
         flex-direction: column;
-        gap: 15px;
-        padding: 0;
+        gap: 20px;
+        padding: 10px 0;
     }
 
     .level-action-labels {
         flex-direction: row;
-        gap: 10px;
+        gap: 8px;
         width: 100%;
+        justify-content: center;
     }
 
     .action-label-card {
         flex: 1;
-        padding: 10px;
-        font-size: 0.85rem;
-        min-height: 38px;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        min-height: 40px;
     }
 
     .level-characters-section {
         flex-direction: column;
-        gap: 0;
+        gap: 15px;
         align-items: center;
     }
 
     .character-images {
         width: 100%;
         justify-content: center;
-        gap: 5px;
+        gap: 8px;
     }
 
     .character-img {
-        width: 100px;
+        width: 80px;
     }
 
     .level-progress-graph {
@@ -1251,11 +1306,11 @@
         justify-content: center;
         margin-left: 0;
         padding-left: 0;
-        margin-top: 8px;
+        margin-top: 10px;
     }
 
     .progress-graph {
-        height: 80px;
+        height: 90px;
         max-width: 100%;
     }
 
@@ -1277,31 +1332,35 @@
 }
 
 @media (max-width: 575.98px) {
+    .level-calculator {
+        padding: 10px;
+    }
+
     .level-progress-container {
-        padding: 0;
-        gap: 12px;
+        padding: 5px 0;
+        gap: 15px;
     }
 
     .level-action-labels {
-        gap: 8px;
+        gap: 6px;
     }
 
     .action-label-card {
-        padding: 8px;
-        font-size: 0.8rem;
+        padding: 6px 8px;
+        font-size: 0.75rem;
         min-height: 35px;
     }
 
     .level-characters-section {
-        gap: 0;
+        gap: 12px;
     }
 
     .character-images {
-        gap: 5px;
+        gap: 6px;
     }
 
     .character-img {
-        width: 90px;
+        width: 70px;
     }
 
     .level-progress-graph {
@@ -1310,7 +1369,7 @@
     }
 
     .progress-graph {
-        height: 70px;
+        height: 80px;
         max-width: 100%;
     }
 

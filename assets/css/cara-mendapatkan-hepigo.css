@@ -4,6 +4,7 @@
     background-color: #fff;
     overflow: hidden;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .cara-mendapatkan-hepigo h2 {
@@ -31,6 +32,7 @@
     width: 100%;
     max-width: 100%;
     padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px);
+    box-sizing: border-box;
 }
 
 .content-track {
