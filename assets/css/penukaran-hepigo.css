@@ -2526,28 +2526,20 @@
 }
 
 .benefits-list .penukaran-benefit-item:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(2px);
 }
 
-.benefits-list .penukaran-benefit-item:nth-child(1) {
-    background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+.benefits-list .penukaran-benefit-item {
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.benefits-list .penukaran-benefit-item:nth-child(2) {
-    background: linear-gradient(135deg, #fff4f0 0%, #ffe6e0 100%);
+.benefits-list .penukaran-benefit-item:nth-child(odd) {
+    background: #fafafa;
 }
 
-.benefits-list .penukaran-benefit-item:nth-child(3) {
-    background: linear-gradient(135deg, #f0fff4 0%, #e6ffe6 100%);
-}
-
-.benefits-list .penukaran-benefit-item:nth-child(4) {
-    background: linear-gradient(135deg, #fff0f7 0%, #ffe6f0 100%);
-}
-
-.benefits-list .penukaran-benefit-item:nth-child(5) {
-    background: linear-gradient(135deg, #f4f0ff 0%, #f0e6ff 100%);
+.benefits-list .penukaran-benefit-item:hover {
+    background: #f7f7f7;
 }
 
 .benefits-list .penukaran-benefit-item .penukaran-benefit-icon {
@@ -2591,14 +2583,14 @@
 .benefits-list .penukaran-benefit-item .penukaran-benefit-text p {
     margin: 0;
     font-size: 1rem;
-    color: #2c3e50;
+    color: #4a5568;
     line-height: 1.6;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .benefits-list .penukaran-benefit-item:hover .penukaran-benefit-text p {
-    color: #1a252f;
+    color: #2d3748;
 }
 
 /* Responsive Styles */

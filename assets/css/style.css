@@ -1283,12 +1283,12 @@ section .section-subtitle {
     }
 
     .hepigo-content {
-        padding: 25px;
+        padding: 10px 0;
     }
 
     .benefits-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15px;
     }
 
     .level-progression {
@@ -1373,12 +1373,12 @@ section .section-subtitle {
     }
 
     .hepigo-content {
-        padding: 20px;
+        padding: 8px 0;
     }
 
     .content-section h2 {
         font-size: 1.75rem;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 
     .content-section .subtitle {
@@ -1545,12 +1545,12 @@ section .section-subtitle {
     }
 
     .hepigo-content {
-        padding: 15px;
+        padding: 5px 0;
     }
 
     .content-section h2 {
         font-size: 1.5rem;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .content-section .subtitle {
@@ -1858,69 +1858,6 @@ section .section-subtitle {
     }
 }
 
-/* Voucher Section Styles */
-.voucher-categories {
-    margin-top: 2rem;
-}
-
-.voucher-category {
-    margin-bottom: 3rem;
-}
-
-.voucher-category h3 {
-    color: var(--hepigo-dark);
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-.voucher-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.voucher-item {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.voucher-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.voucher-item img {
-    width: 100%;
-    height: auto;
-    max-width: 120px;
-    margin-bottom: 1rem;
-}
-
-.voucher-details h4 {
-    color: var(--hepigo-dark);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.voucher-details p {
-    color: var(--hepigo-gray);
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-.voucher-note {
-    text-align: center;
-    margin-top: 2rem;
-    color: var(--hepigo-gray);
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
 /* Points Conversion Styles */
 .points-conversion {
     background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
@@ -2140,10 +2077,7 @@ section .section-subtitle {
 
 /* Content Section Styles */
 .hepigo-content {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
 }
 
 .content-section {
@@ -2256,238 +2190,6 @@ section .section-subtitle {
     margin-bottom: 0;
 }
 
-/* Benefits Section Styles */
-.benefits-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.keuntungan-benefit-item {
-    text-align: center;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.keuntungan-benefit-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.keuntungan-benefit-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-}
-
-.keuntungan-benefit-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.keuntungan-benefit-item h4 {
-    color: var(--hepigo-red);
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.keuntungan-benefit-item p {
-    color: var(--hepigo-dark);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0;
-}
-
-/* Level Progression Styles */
-.level-progression {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.level-card {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.level-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.level-card h5 {
-    color: var(--hepigo-red);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.level-card p {
-    color: var(--hepigo-dark);
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-.level-card.starter {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-}
-.level-card.rider {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-}
-.level-card.racer {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-}
-.level-card.champion {
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
-}
-
-/* Level Note Styles */
-.level-note {
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-}
-
-.level-note p {
-    color: var(--hepigo-dark);
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-/* Responsive Styles for Hepigo Info Section */
-@media (max-width: 991.98px) {
-    .hepigo-info-section {
-        padding: 60px 0;
-    }
-
-    .hepigo-sidebar {
-        position: relative;
-        top: 0;
-        margin-bottom: 30px;
-        padding: 20px;
-    }
-
-    .hepigo-sidebar .nav-link {
-        padding: 12px 15px;
-        font-size: 14px;
-    }
-
-    .hepigo-sidebar .nav-link .number {
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
-        margin-right: 10px;
-    }
-
-    .hepigo-content {
-        padding: 25px;
-    }
-
-    .content-section h2 {
-        font-size: 2rem;
-    }
-
-    .content-section .subtitle {
-        font-size: 1.1rem;
-    }
-
-    .benefits-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .level-progression {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .info-cards {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .hepigo-info-section {
-        padding: 40px 0;
-    }
-
-    .hepigo-sidebar {
-        padding: 15px;
-        margin-bottom: 25px;
-    }
-
-    .hepigo-content {
-        padding: 20px;
-    }
-
-    .content-section h2 {
-        font-size: 1.75rem;
-        margin-bottom: 15px;
-    }
-
-    .content-section .subtitle {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .benefits-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .level-progression {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .info-card {
-        margin-bottom: 15px;
-    }
-
-    .info-card .card-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    .text-content h3 {
-        font-size: 1.2rem;
-    }
-
-    .text-content p {
-        font-size: 0.95rem;
-    }
-
-    .icon-wrapper {
-        margin: 10px auto;
-        width: 60px;
-        height: 60px;
-    }
-
-    .info-note {
-        padding: 15px;
-        margin-top: 20px;
-    }
-
-    .info-note p {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-    }
-
-    .info-note .highlight {
-        font-size: 1.1rem;
-    }
-}
-
 /* AOS Animation Overrides */
 [data-aos] {
     pointer-events: none;
@@ -2589,6 +2291,7 @@ html {
 .footer-section::before {
     content: '';
     position: absolute;
+
     top: 0;
     right: 0;
     width: 40%;

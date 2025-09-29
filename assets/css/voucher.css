@@ -31,13 +31,12 @@
 
 .voucher-category {
     flex: 1;
-    padding: 0 20px;
 }
 
 .voucher-category h3 {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #333;
 }
 
@@ -45,14 +44,14 @@
 .honda-vouchers .voucher-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 10px;
 }
 
 .honda-vouchers .voucher-grid-bottom {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .honda-vouchers .voucher-item {
@@ -61,13 +60,18 @@
 
 .honda-vouchers .voucher-item img {
     width: 100%;
-    max-width: 200px;
+    max-width: 240px;
     height: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.honda-vouchers .voucher-item img:hover {
+    transform: scale(1.05);
 }
 
 .honda-vouchers .voucher-details {
-    margin-top: 10px;
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -82,14 +86,14 @@
 .belanja-vouchers .voucher-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .belanja-vouchers .voucher-grid-bottom {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 10px;
 }
 
 .belanja-vouchers .voucher-item {
@@ -98,13 +102,18 @@
 
 .belanja-vouchers .voucher-item img {
     width: 100%;
-    max-width: 120px;
+    max-width: 160px;
     height: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.belanja-vouchers .voucher-item img:hover {
+    transform: scale(1.05);
 }
 
 .belanja-vouchers .voucher-details {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .belanja-vouchers .voucher-details h4 {

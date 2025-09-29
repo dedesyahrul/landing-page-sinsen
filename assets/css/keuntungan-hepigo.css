@@ -11,67 +11,107 @@
     color: #333;
 }
 
+/* Benefits Container */
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.keuntungan-benefit-item {
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.keuntungan-benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
+}
+
+.keuntungan-benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.keuntungan-benefit-icon img:hover {
+    transform: scale(1.1);
+}
+
+.keuntungan-benefit-item h4 {
+    color: var(--hepigo-red);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.keuntungan-benefit-item p {
+    color: var(--hepigo-dark);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
 /* Level Cards Container */
 .keuntungan-level-progression {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-    justify-content: space-between;
+    margin-bottom: 20px;
+    justify-content: center;
 }
 
 /* Level Card Styles */
 .keuntungan-level-card {
     flex: 1;
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 180px;
+    transition: all 0.3s ease;
+    max-width: 200px;
 }
 
-.keuntungan-level-card.starter {
-    background-color: #e3f2fd;
+.keuntungan-level-card:not(:last-child) {
+    border-right: 1px solid #e0e0e0;
+    margin-right: 8px;
 }
-.keuntungan-level-card.rider {
-    background-color: #e8f5e9;
-}
-.keuntungan-level-card.racer {
-    background-color: #fff3e0;
-}
-.keuntungan-level-card.champion {
-    background-color: #ffebee;
+
+.keuntungan-level-card:hover {
+    transform: translateY(-5px);
 }
 
 .keuntungan-level-card h5 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     color: #333;
 }
 
 .keuntungan-level-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
+    padding: 0 5px;
 }
 
-/* Level Icons */
-.keuntungan-level-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
+/* Level Image */
+.keuntungan-level-card .level-image {
+    width: 180px;
+    height: auto;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
 }
 
-.keuntungan-level-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.keuntungan-level-card:hover .level-image {
+    transform: scale(1.05);
 }
 
 /* Note Section */
@@ -89,6 +129,24 @@
     margin-bottom: 15px;
 }
 
+.level-note-text {
+    margin: 15px 0;
+    font-style: italic;
+}
+
+.level-note-text p {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.level-note-text p:last-child {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
 .keuntungan-level-note .btn-danger {
     padding: 10px 30px;
     font-weight: 500;
@@ -96,39 +154,147 @@
 
 /* Responsive Styles */
 @media (max-width: 991.98px) {
+    .benefits-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 0 20px;
+    }
+
     .keuntungan-level-progression {
         flex-wrap: wrap;
-        gap: 15px;
+        justify-content: center;
+        gap: 5px;
     }
 
     .keuntungan-level-card {
-        flex: 0 0 calc(50% - 15px);
-        min-height: 160px;
+        flex: 0 0 calc(50% - 5px);
+        max-width: none;
+        margin: 0;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .keuntungan-level-card:not(:last-child) {
+        margin-right: 0;
+        border-right: none;
+    }
+
+    .keuntungan-level-card .level-image {
+        width: 150px;
+        margin-bottom: 6px;
+    }
+
+    .keuntungan-benefit-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 10px;
+    }
+
+    .keuntungan-benefit-item h4 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    .keuntungan-benefit-item p {
+        font-size: 0.85rem;
+        line-height: 1.3;
     }
 }
 
 @media (max-width: 767.98px) {
     .keuntungan-hepigo {
-        padding: 40px 0;
+        padding: 25px 0;
+    }
+
+    .benefits-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .keuntungan-benefit-item {
+        padding: 8px;
+    }
+
+    .keuntungan-benefit-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 8px;
+    }
+
+    .keuntungan-benefit-item h4 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .keuntungan-benefit-item p {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .keuntungan-level-progression {
+        margin: 0;
     }
 
     .keuntungan-level-card {
         flex: 0 0 100%;
-        min-height: auto;
-        padding: 15px;
+        margin: 0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
     }
 
-    .keuntungan-level-icon {
-        width: 60px;
-        height: 60px;
+    .keuntungan-level-card:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .keuntungan-level-card .level-image {
+        width: 140px;
+        margin-bottom: 6px;
     }
 
     .keuntungan-level-card h5 {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 3px;
     }
 
     .keuntungan-level-note {
-        margin-top: 20px;
-        padding: 15px;
+        margin-top: 15px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .keuntungan-hepigo {
+        padding: 20px 0;
+    }
+
+    .benefits-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .keuntungan-benefit-item {
+        padding: 5px;
+    }
+
+    .keuntungan-benefit-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 6px;
+    }
+
+    .keuntungan-benefit-item h4 {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .keuntungan-benefit-item p {
+        font-size: 0.75rem;
+        line-height: 1.2;
     }
 }
